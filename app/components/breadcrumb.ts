@@ -42,7 +42,7 @@ export class BreadcrumbComponent implements OnInit, OnChanges {
 
            if (navigationEnd instanceof NavigationEnd) {
                 this._urls.length = 0; //Fastest way to clear out array
-                this.generateBreadcrumbTrail(navigationEnd.urlAfterRedirects ? navigationEnd.urlAfterRedirects : navigationEnd.url);
+                this.generateBreadcrumbTrail((navigationEnd.urlAfterRedirects && typeof navigationEnd.urlAfterRedirects === 'string') ? navigationEnd.urlAfterRedirects : navigationEnd.url);
             }
         });
     }
